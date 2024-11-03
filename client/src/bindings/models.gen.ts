@@ -14,6 +14,12 @@ export interface Beast {
 	max_happiness: number;
 	hygiene: number;
 	max_hygiene: number;
+	attack: number;
+	defense: number;
+	speed: number;
+	level: number;
+	experience: number;
+	next_level_experience: number;
 }
 
 // Type definition for `dojo_starter::models::BeastValue` struct
@@ -29,6 +35,12 @@ export interface BeastValue {
 	max_happiness: number;
 	hygiene: number;
 	max_hygiene: number;
+	attack: number;
+	defense: number;
+	speed: number;
+	level: number;
+	experience: number;
+	next_level_experience: number;
 }
 
 export interface Schema extends SchemaType {
@@ -46,7 +58,7 @@ export const schema: Schema = {
 			fieldOrder: ['player', 'is_alive', 'hunger', 'max_hunger', 'energy', 'max_energy', 'happiness', 'max_happiness', 'hygiene', 'max_hygiene'],
 			player: "",
 			is_alive: false,
-			is_awake: true,
+			is_awake: false,
 			hunger: 0,
 			max_hunger: 0,
 			energy: 0,
@@ -55,11 +67,17 @@ export const schema: Schema = {
 			max_happiness: 0,
 			hygiene: 0,
 			max_hygiene: 0,
+			attack: 0,
+			defense: 0,
+			speed: 0,
+			level: 0,
+			experience: 0,
+			next_level_experience: 0,
 		},
 		BeastValue: {
 			fieldOrder: ['is_alive', 'hunger', 'max_hunger', 'energy', 'max_energy', 'happiness', 'max_happiness', 'hygiene', 'max_hygiene'],
 			is_alive: false,
-			is_awake: true,
+			is_awake: false,
 			hunger: 0,
 			max_hunger: 0,
 			energy: 0,
@@ -68,6 +86,12 @@ export const schema: Schema = {
 			max_happiness: 0,
 			hygiene: 0,
 			max_hygiene: 0,
+			attack: 0,
+			defense: 0,
+			speed: 0,
+			level: 0,
+			experience: 0,
+			next_level_experience: 0,
 		},
 		ERC__Balance: {
 			fieldOrder: ['balance', 'type', 'tokenmetadata'],

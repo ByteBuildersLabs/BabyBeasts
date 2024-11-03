@@ -17,6 +17,8 @@
   cursor: pointer;
   margin: 0;
   width: 90%;
+  height: 60px;
+  font-size: 18px;
 }
 
 .App .button:hover {
@@ -85,4 +87,23 @@ body svg {
 .footer img {
   max-width: unset;
   height: 18px;
+}
+
+.info {
+  font-size: 12px;
+  color: #c8c8c8;
+}
+
+.title {
+  text-align: left;
+  font-family: "Marcellus SC", serif;
+  font-weight: 800;
+  font-size: 18px;
+  margin: 0;
+  padding-right: 5px;
+}
+
+.title span {
+  font-size: 18px;
+  color: #e4a101;
 }
