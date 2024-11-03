@@ -171,7 +171,7 @@ function App({ sdk }: { sdk: SDK<Schema> }) {
       if (beast?.is_alive) {
         await client.actions.decreaseStats(account.account);
       }
-    }, 3000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [beast?.is_alive]);
@@ -298,6 +298,7 @@ function App({ sdk }: { sdk: SDK<Schema> }) {
                         onClick={async () => {
                           await client.actions.awake(account.account);
                           if (beast.is_alive) setCurrentImage(happy);
+                          scrollToTop();
                         }}
                         disabled={!beast.is_alive}
                         className="flex items-center gap-2 button"
@@ -353,7 +354,7 @@ function App({ sdk }: { sdk: SDK<Schema> }) {
                       <Progress value={beast.experience} />
                       <span className="w-12 text-right font-medium text-white">{(beast.experience)}</span>
                     </div>
-                    <p className="info mt-0">{beast.next_level_experience} experience points left to reach next level</p>
+                    <p className="info mt-0">{beast.next_level_experience} experience points to reach next level</p>
                   </div>
                 </CardContent>
               </Card>
