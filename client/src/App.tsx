@@ -12,7 +12,7 @@ import { Button } from './components/ui/button';
 import { Heart, Pizza, Coffee, Bath, Gamepad2, Sun, Swords, ShieldPlus, TestTubeDiagonal, CircleGauge,  } from 'lucide-react';
 import Background from "./components/Background/index";
 import './styles/globals.css';
-import { Chain, sepolia } from "@starknet-react/chains";
+import { sepolia } from "@starknet-react/chains";
 import { StarknetConfig, starkscan } from "@starknet-react/core";
 import { RpcProvider } from "starknet";
 import cartridgeConnector from "./cartridgeConnector";
@@ -28,7 +28,7 @@ import Footer from "./components/Footer/index.tsx";
 import Play from "./components/Play/index.tsx";
 
 
-function provider(chain: Chain) {
+function provider() {
   return new RpcProvider({
     nodeUrl: "https://api.cartridge.gg/x/starknet/sepolia",
   });
@@ -49,7 +49,6 @@ function App({ sdk }: { sdk: SDK<Schema> }) {
     setup: { client },
   } = useDojo();
   const state = useDojoStore((state) => state);
-  const entities = useDojoStore((state) => state.entities);
 
   const { spawn } = useSystemCalls();
 

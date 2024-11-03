@@ -1,5 +1,5 @@
 import { DojoProvider } from "@dojoengine/core";
-import { Account, byteArray } from "starknet";
+import { Account } from "starknet";
 
 
 export type IClient = Awaited<ReturnType<typeof client>>;
@@ -7,8 +7,6 @@ export type IClient = Awaited<ReturnType<typeof client>>;
 export function client(provider: DojoProvider) {
     // System definitions for `dojo_starter-actions` contract
     function actions() {
-        const contract_name = "actions";
-
         const spawn = async (account: Account) => {
             try {
                 return await provider.execute(
