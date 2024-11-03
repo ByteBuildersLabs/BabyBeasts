@@ -1,12 +1,15 @@
 import { useEffect, useMemo } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SDK, createDojoStore } from "@dojoengine/sdk";
 import { getEntityIdFromKeys } from "@dojoengine/utils";
 import { addAddressPadding } from "starknet";
-
 import { Models, Schema } from "./bindings/models.gen.ts";
 import { useDojo } from "./useDojo.tsx";
 import useModel from "./useModel.tsx";
 import { useSystemCalls } from "./useSystemCalls.ts";
+import TamagotchiDashboard from './components/tamagotchi-dashboard';
+import Background from './components/ui/Background';
+import './styles/globals.css';
 
 export const useDojoStore = createDojoStore<Schema>();
 
@@ -117,25 +120,19 @@ function App({ sdk }: { sdk: SDK<Schema> }) {
     const beasts = useModel(entityId, Models.Beast);
 
     return (
-        <div className="bg-black min-h-screen w-full p-4 sm:p-8">
-            <div className="max-w-7xl mx-auto">
+      <div className="min-h-screen bg-background">
+        <Router>
+          {/* Background component, which applies a video background */}
+          <Background />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                    <div className="bg-gray-700 p-4 rounded-lg shadow-inner">
-                        <div className="grid grid-cols-3 gap-2 w-full h-48">
-                            <div className="col-start-2">
-                                <button
-                                    className="h-12 w-12 bg-gray-600 rounded-full shadow-md active:shadow-inner active:bg-gray-500 focus:outline-none text-2xl font-bold text-gray-200"
-                                    onClick={async () => await spawn()}
-                                >
-                                    +
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+          <div id="content">
+            <Routes>
+              {/* Define routes here, including your main game route */}
+              <Route path="/" element={<TamagotchiDashboard />} />
+            </Routes>
+          </div>
+        </Router>
+      </div>
     );
 }
 
