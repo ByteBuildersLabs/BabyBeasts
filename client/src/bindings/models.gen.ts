@@ -1,46 +1,38 @@
 import type { SchemaType } from "@dojoengine/sdk";
 
-// Type definition for `dojo_starter::models::BeastValue` struct
-export interface BeastValue {
-	fieldOrder: string[];
-	life: number;
-	max_life: number;
-	hungry: number;
-	max_hungry: number;
-	energy: number;
-	max_energy: number;
-	happiness: number;
-	max_happiness: number;
-	bath: number;
-	max_bath: number;
-	level: number;
-	experience: number;
-	next_level_experience: number;
-}
-
 // Type definition for `dojo_starter::models::Beast` struct
 export interface Beast {
 	fieldOrder: string[];
 	player: string;
-	life: number;
-	max_life: number;
-	hungry: number;
-	max_hungry: number;
+	is_alive: boolean;
+	hunger: number;
+	max_hunger: number;
 	energy: number;
 	max_energy: number;
 	happiness: number;
 	max_happiness: number;
-	bath: number;
-	max_bath: number;
-	level: number;
-	experience: number;
-	next_level_experience: number;
+	hygiene: number;
+	max_hygiene: number;
+}
+
+// Type definition for `dojo_starter::models::BeastValue` struct
+export interface BeastValue {
+	fieldOrder: string[];
+	is_alive: boolean;
+	hunger: number;
+	max_hunger: number;
+	energy: number;
+	max_energy: number;
+	happiness: number;
+	max_happiness: number;
+	hygiene: number;
+	max_hygiene: number;
 }
 
 export interface Schema extends SchemaType {
 	dojo_starter: {
-		BeastValue: BeastValue,
 		Beast: Beast,
+		BeastValue: BeastValue,
 		ERC__Balance: ERC__Balance,
 		ERC__Token: ERC__Token,
 		ERC__Transfer: ERC__Transfer,
@@ -48,38 +40,30 @@ export interface Schema extends SchemaType {
 }
 export const schema: Schema = {
 	dojo_starter: {
-		BeastValue: {
-			fieldOrder: ['life', 'max_life', 'hungry', 'max_hungry', 'energy', 'max_energy', 'happiness', 'max_happiness', 'bath', 'max_bath', 'level', 'experience', 'next_level_experience'],
-			life: 0,
-			max_life: 0,
-			hungry: 0,
-			max_hungry: 0,
-			energy: 0,
-			max_energy: 0,
-			happiness: 0,
-			max_happiness: 0,
-			bath: 0,
-			max_bath: 0,
-			level: 0,
-			experience: 0,
-			next_level_experience: 0,
-		},
 		Beast: {
-			fieldOrder: ['player', 'life', 'max_life', 'hungry', 'max_hungry', 'energy', 'max_energy', 'happiness', 'max_happiness', 'bath', 'max_bath', 'level', 'experience', 'next_level_experience'],
+			fieldOrder: ['player', 'is_alive', 'hunger', 'max_hunger', 'energy', 'max_energy', 'happiness', 'max_happiness', 'hygiene', 'max_hygiene'],
 			player: "",
-			life: 0,
-			max_life: 0,
-			hungry: 0,
-			max_hungry: 0,
+			is_alive: false,
+			hunger: 0,
+			max_hunger: 0,
 			energy: 0,
 			max_energy: 0,
 			happiness: 0,
 			max_happiness: 0,
-			bath: 0,
-			max_bath: 0,
-			level: 0,
-			experience: 0,
-			next_level_experience: 0,
+			hygiene: 0,
+			max_hygiene: 0,
+		},
+		BeastValue: {
+			fieldOrder: ['is_alive', 'hunger', 'max_hunger', 'energy', 'max_energy', 'happiness', 'max_happiness', 'hygiene', 'max_hygiene'],
+			is_alive: false,
+			hunger: 0,
+			max_hunger: 0,
+			energy: 0,
+			max_energy: 0,
+			happiness: 0,
+			max_happiness: 0,
+			hygiene: 0,
+			max_hygiene: 0,
 		},
 		ERC__Balance: {
 			fieldOrder: ['balance', 'type', 'tokenmetadata'],

@@ -3,6 +3,7 @@ import { Account } from "starknet";
 import * as models from "./models.gen";
 
 export async function setupWorld(provider: DojoProvider) {
+
 	const spawn = async (account: Account) => {
 		try {
 			return await provider.execute(
@@ -105,23 +106,6 @@ export async function setupWorld(provider: DojoProvider) {
 		}
 	};
 
-	const dojoName = async (account: Account) => {
-		try {
-			return await provider.execute(
-
-				account,
-				{
-					contractName: "actions",
-					entrypoint: "dojo_name",
-					calldata: [],
-				},
-                "dojo_starter"
-			);
-		} catch (error) {
-			console.error(error);
-		}
-	};
-
 	const worldDispatcher = async (account: Account) => {
 		try {
 			return await provider.execute(
@@ -139,6 +123,39 @@ export async function setupWorld(provider: DojoProvider) {
 		}
 	};
 
+	const dojoName = async (account: Account) => {
+		try {
+			return await provider.execute(
+
+				account,
+				{
+					contractName: "actions",
+					entrypoint: "dojo_name",
+					calldata: [],
+				},
+                "dojo_starter"
+			);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	// const upgrade = async (account: Account, newClassHash: ClassHash) => {
+	// 	try {
+	// 		return await provider.execute(
+
+	// 			account,
+	// 			{
+	// 				contractName: "actions",
+	// 				entrypoint: "upgrade",
+	// 				calldata: [newClassHash],
+	// 			}
+	// 		);
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// };
+
 	return {
 		spawn,
 		decreaseStats,
@@ -146,7 +163,8 @@ export async function setupWorld(provider: DojoProvider) {
 		sleep,
 		play,
 		clean,
-		dojoName,
 		worldDispatcher,
+		dojoName,
+		// upgrade,
 	};
 }

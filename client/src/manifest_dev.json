@@ -1121,8 +1121,8 @@
   },
   "contracts": [
     {
-      "address": "0x527223604dbb64d2076f4a88007ac66653206a1c050a9fa8cbf96514d0223f3",
-      "class_hash": "0x14b994e1899a7a4fc18cc5c9773c366cb3cc19f926d7a5605cf83d76b9b9645",
+      "address": "0x71e5133a7083867f82c5edcf352b5c5ab06740675d0671e54e57daec06a20ae",
+      "class_hash": "0x30298a3186ed487ad1aa32648cf156ccfe7ea0d433dcc577e11358dc6090e81",
       "abi": [
         {
           "type": "impl",
@@ -1340,7 +1340,7 @@
   "models": [
     {
       "members": [],
-      "class_hash": "0x6787252587c58fcf1e0d1ab19b38d0ebcb6d1e932c509356d67841632319986",
+      "class_hash": "0x348e3f8b8d734c2aeed24b5469b1257a04865ab17d75106b2adc936cd602074",
       "tag": "Beast"
     }
   ],
