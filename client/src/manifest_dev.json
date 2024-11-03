@@ -1121,8 +1121,8 @@
   },
   "contracts": [
     {
-      "address": "0x32ae31b916aa0528d040a31ce9ce6d8f3b5f87a93a39aa1a1c5fdee2c2dadad",
-      "class_hash": "0x436f2cc1c67462f7cce7f917a82c1e45870080eddf94e09609d8b72d52fd8c1",
+      "address": "0x527223604dbb64d2076f4a88007ac66653206a1c050a9fa8cbf96514d0223f3",
+      "class_hash": "0x14b994e1899a7a4fc18cc5c9773c366cb3cc19f926d7a5605cf83d76b9b9645",
       "abi": [
         {
           "type": "impl",
@@ -1170,32 +1170,6 @@
           "interface_name": "dojo_starter::systems::actions::IActions"
         },
         {
-          "type": "enum",
-          "name": "dojo_starter::models::Direction",
-          "variants": [
-            {
-              "name": "None",
-              "type": "()"
-            },
-            {
-              "name": "Left",
-              "type": "()"
-            },
-            {
-              "name": "Right",
-              "type": "()"
-            },
-            {
-              "name": "Up",
-              "type": "()"
-            },
-            {
-              "name": "Down",
-              "type": "()"
-            }
-          ]
-        },
-        {
           "type": "interface",
           "name": "dojo_starter::systems::actions::IActions",
           "items": [
@@ -1208,13 +1182,36 @@
             },
             {
               "type": "function",
-              "name": "move",
-              "inputs": [
-                {
-                  "name": "direction",
-                  "type": "dojo_starter::models::Direction"
-                }
-              ],
+              "name": "decrease_stats",
+              "inputs": [],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "feed",
+              "inputs": [],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "sleep",
+              "inputs": [],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "play",
+              "inputs": [],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "clean",
+              "inputs": [],
               "outputs": [],
               "state_mutability": "external"
             }
@@ -1343,25 +1340,9 @@
   "models": [
     {
       "members": [],
-      "class_hash": "0x7ba1920c35f44c82d82d0ff47cbbf04e60226c28027b1a45731aa07bceea9d1",
-      "tag": "DirectionsAvailable"
-    },
-    {
-      "members": [],
-      "class_hash": "0x469117d9c5cac8ee02e521addae16a36da3571b2d977971395771d4c2db73e0",
-      "tag": "Moves"
-    },
-    {
-      "members": [],
-      "class_hash": "0x445a1f5bdb78726083b9b577e775e066f6145f0240162d59f105a1251c2b016",
-      "tag": "Position"
+      "class_hash": "0x6787252587c58fcf1e0d1ab19b38d0ebcb6d1e932c509356d67841632319986",
+      "tag": "Beast"
     }
   ],
-  "events": [
-    {
-      "members": [],
-      "class_hash": "0x5f6b87c8f5260f907795382b962e1f04ab0e98b754b6946eedcee27921819a9",
-      "tag": "Moved"
-    }
-  ]
+  "events": []
 }
