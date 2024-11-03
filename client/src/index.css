@@ -1,39 +1,88 @@
 .App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+  text-align: center;
+  padding: 80px 20px 50px;
+  color: #fff;
+  width: 100%;
+  max-width: 380px;
+  margin: auto;
+}
+
+.App .button {
+  background-color: #370001;
+  border: 2px solid #e4a101;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: all 0.25s;
+  cursor: pointer;
+  margin: 0;
+  width: 90%;
+}
+
+.App .button:hover {
+  background-color: #e4a101;
+}
+
+.tamaguchi {
+  background-color: transparent;
+}
+
+body svg {
+  color: #e4a101 !important;
+}
+
+
+.section-title {
+  text-align: center;
+  font-family: "Marcellus SC", serif;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 0;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.section-title h2 span {
+  font-size: 36px;
+  color: #e4a101;
+}
+
+.section-title > span {
+  display: block;
+  line-height: 1;
+  font-size: 10px;
+  font-weight: 700;
+  color: #c8c8c8;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.title-style-two {
+  padding-bottom: 35px;
+  position: relative;
+  margin: 30px auto 40px;
+}
+
+.title-style-two::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-image: url("../src/img/title_bar.png");
+  width: 270px;
+  height: 13px;
+  background-repeat: no-repeat;
+}
+
+.title-style-two.text-center::before {
+  right: 0;
+  margin: 0 auto;
+}
+
+.footer img {
+  max-width: unset;
+  height: 18px;
+}

@@ -5,6 +5,7 @@ export interface Beast {
 	fieldOrder: string[];
 	player: string;
 	is_alive: boolean;
+	is_awake: boolean;
 	hunger: number;
 	max_hunger: number;
 	energy: number;
@@ -19,6 +20,7 @@ export interface Beast {
 export interface BeastValue {
 	fieldOrder: string[];
 	is_alive: boolean;
+	is_awake: boolean;
 	hunger: number;
 	max_hunger: number;
 	energy: number;
@@ -44,6 +46,7 @@ export const schema: Schema = {
 			fieldOrder: ['player', 'is_alive', 'hunger', 'max_hunger', 'energy', 'max_energy', 'happiness', 'max_happiness', 'hygiene', 'max_hygiene'],
 			player: "",
 			is_alive: false,
+			is_awake: true,
 			hunger: 0,
 			max_hunger: 0,
 			energy: 0,
@@ -56,6 +59,7 @@ export const schema: Schema = {
 		BeastValue: {
 			fieldOrder: ['is_alive', 'hunger', 'max_hunger', 'energy', 'max_energy', 'happiness', 'max_happiness', 'hygiene', 'max_hygiene'],
 			is_alive: false,
+			is_awake: true,
 			hunger: 0,
 			max_hunger: 0,
 			energy: 0,

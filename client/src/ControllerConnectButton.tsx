@@ -14,9 +14,9 @@ const ControllerConnectButton = () => {
         <button
           key={connector.id}
           onClick={() => connect({ connector })}
-          className="connect-btn"
+          className="connect-btn button w-100"
         >
-          Connect with Controller
+          Connect
         </button>
       ))}
     </div>

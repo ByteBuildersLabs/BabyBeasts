@@ -77,6 +77,24 @@ export function client(provider: DojoProvider) {
             }
         };
 
+        const awake = async (account: Account) => {
+            try {
+                return await provider.execute(
+
+                    account,
+                    {
+                        contractName: "actions",
+                        entrypoint: "awake",
+                        calldata: [],
+                    },
+                    "dojo_starter"
+                );
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+
         const play = async (account: Account) => {
             try {
                 return await provider.execute(
@@ -102,6 +120,23 @@ export function client(provider: DojoProvider) {
                     {
                         contractName: "actions",
                         entrypoint: "clean",
+                        calldata: [],
+                    },
+                    "dojo_starter"
+                );
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        const revive = async (account: Account) => {
+            try {
+                return await provider.execute(
+
+                    account,
+                    {
+                        contractName: "actions",
+                        entrypoint: "revive",
                         calldata: [],
                     },
                     "dojo_starter"
@@ -150,8 +185,10 @@ export function client(provider: DojoProvider) {
             decreaseStats,
             feed,
             sleep,
+            awake,
             play,
             clean,
+            revive,
             worldDispatcher,
             dojoName,
         };

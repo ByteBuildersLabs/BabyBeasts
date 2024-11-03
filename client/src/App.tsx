@@ -10,12 +10,23 @@ import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card.t
 import { Progress } from './components/ui/progress';
 import { Button } from './components/ui/button';
 import { Heart, Pizza, Coffee, Bath, Gamepad2, Sun } from 'lucide-react';
+import Background from "./components/Background/index";
 import './styles/globals.css';
 import { Chain, sepolia } from "@starknet-react/chains";
 import { StarknetConfig, starkscan } from "@starknet-react/core";
 import { RpcProvider } from "starknet";
 import cartridgeConnector from "./cartridgeConnector";
-import ControllerConnectButton from './ControllerConnectButton';
+
+import sleep from './img/sleep.gif';
+import eat from './img/eat.gif';
+import play from './img/play.gif';
+import shower from './img/shower.gif';
+import happy from './img/happy.gif';
+import dead from './img/dead.gif';
+import Header from "./components/Header/index.tsx";
+import Footer from "./components/Footer/index.tsx";
+import Play from "./components/Play/index.tsx";
+
 
 function provider(chain: Chain) {
   return new RpcProvider({
@@ -128,10 +139,41 @@ function App({ sdk }: { sdk: SDK<Schema> }) {
     fetchEntities();
   }, [sdk, account?.account.address]);
 
-  const [currentImage, setCurrentImage] = useState('/babybeast_happy.gif');
+  const [currentImage, setCurrentImage] = useState(happy);
+
+  const showAnimationWithoutTimer = (gifPath: string) => {
+    setCurrentImage(gifPath);
+  };
+
+  const showAnimation = (gifPath: string) => {
+    setCurrentImage(gifPath);
+    setTimeout(() => {
+      setCurrentImage(happy);
+    }, 3000);
+  };
+
+  const showDeathAnimation = () => {
+    setCurrentImage(dead);
+  };
 
   const beast = useModel(entityId, Models.Beast);
   console.log(beast);
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      if (beast?.is_alive) {
+        await client.actions.decreaseStats(account.account);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [beast?.is_alive]);
+
+  useEffect(() => {
+    if (!beast?.is_alive) {
+      showDeathAnimation();
+    }
+  }, [beast?.is_alive]);
 
   return (
     <StarknetConfig
@@ -141,17 +183,22 @@ function App({ sdk }: { sdk: SDK<Schema> }) {
       explorer={starkscan}
       provider={provider}
     >
-      <div className="min-h-screen bg-background">
-      <ControllerConnectButton />
+      <div className="App">
+        <Background />
+        <Header />
         {
           beast
-            ? <div className="w-full max-w-2xl mx-auto p-4">
+            ? <div className="tamaguchi">
+              <div className="section-title title-style-two text-center">
+                <span>Byte Builders Labs</span>
+                <h2>Take care of<span className="d-block">your own Baby Beast</span></h2>
+              </div>
               <Card>
                 <CardContent>
                   <div className="space-y-6">
 
                     {/* Centered Tamagotchi Image */}
-                    <div className="flex justify-center mb-4">
+                    <div className="flex justify-center mt-2 mb-4">
                       <img src={currentImage} alt="Tamagotchi" className="w-40 h-40" />
                     </div>
 
@@ -186,54 +233,79 @@ function App({ sdk }: { sdk: SDK<Schema> }) {
                     {/* Action Buttons */}
                     <div className="grid grid-cols-2 gap-4 mt-6">
                       <Button
-                        onClick={async () => await client.actions.feed(account.account)}
+                        onClick={async () => {
+                          await client.actions.feed(account.account);
+                          if (beast.is_alive) showAnimation(eat);
+                        }}
                         disabled={!beast.is_alive}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 button"
                       >
                         <Pizza className="w-4 h-4" /> Feed
                       </Button>
                       <Button
-                        onClick={async () => await client.actions.decreaseStats(account.account)}
+                        onClick={async () => {
+                          await client.actions.sleep(account.account);
+                          if (beast.is_alive) showAnimationWithoutTimer(sleep);
+                        }}
                         disabled={!beast.is_alive}
-                        className="flex items-center gap-2"
-                      >
-                        <Pizza className="w-4 h-4" /> Decrease
-                      </Button>
-                      <Button
-                        onClick={async () => await client.actions.sleep(account.account)}
-                        disabled={!beast.is_alive}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 button"
                       >
                         <Coffee className="w-4 h-4" /> Sleep
                       </Button>
                       <Button
-                        onClick={async () => await client.actions.play(account.account)}
+                        onClick={async () => {
+                          await client.actions.play(account.account);
+                          if (beast.is_alive) showAnimation(play);
+                        }}
                         disabled={!beast.is_alive}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 button"
                       >
                         <Gamepad2 className="w-4 h-4" /> Play
                       </Button>
                       <Button
-                        onClick={async () => await client.actions.clean(account.account)}
+                        onClick={async () => {
+                          await client.actions.clean(account.account);
+                          if (beast.is_alive) showAnimation(shower);
+                        }}
                         disabled={!beast.is_alive}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 button"
                       >
                         <Bath className="w-4 h-4" /> Clean
                       </Button>
-                      {/* <Button
-                      onClick={async () => await client.actions.sleep(account.account)}
-                      disabled={!isAlive}
-                      className="flex items-center gap-2"
-                    >
-                      <Sun className="w-4 h-4" /> Wake Up
-                    </Button> */}
+                      <Button
+                        onClick={async () => {
+                          await client.actions.awake(account.account);
+                          if (beast.is_alive) setCurrentImage(happy);
+                        }}
+                        disabled={!beast.is_alive}
+                        className="flex items-center gap-2 button"
+                      >
+                        <Sun className="w-4 h-4" /> Wake Up
+                      </Button>
+                      <Button
+                        onClick={async () => {
+                          await client.actions.revive(account.account);
+                          setCurrentImage(happy);
+                        }}
+                        disabled={beast.is_alive}
+                        className="flex items-center gap-2 button"
+                      >
+                        <Sun className="w-4 h-4" /> Revive
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
-            : <button onClick={async () => spawn()}>Spawn</button>
+            :
+            <>
+              <Play />
+              <button onClick={async () => spawn()} className="button">Spawn a BabyBeast</button>
+            </>
+
         }
+
+        <Footer />
       </div>
     </StarknetConfig>
   );

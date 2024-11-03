@@ -6,13 +6,12 @@ const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className="rounded-lg border text-card-foreground shadow-sm mb-4 transition-all"
     style={{
       borderRadius: "25px",
       borderWidth: "3px",
-      borderColor: "#e4a101",
-      backgroundColor: "#1b1b1b",
-      color: "var(--main-bg-color)",
+      borderColor: "transparent",
+      backgroundColor: "transparent",
+      color: "#fff",
     }}
     {...props}
   />
@@ -25,8 +24,11 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className="flex flex-col space-y-1.5 p-6"
+    className="flex flex-col space-y-1.5"
     {...props}
+    style={{
+      padding: "40px",
+    }}
   />
 ))
 CardHeader.displayName = "CardHeader"

@@ -1121,8 +1121,8 @@
   },
   "contracts": [
     {
-      "address": "0x71e5133a7083867f82c5edcf352b5c5ab06740675d0671e54e57daec06a20ae",
-      "class_hash": "0x30298a3186ed487ad1aa32648cf156ccfe7ea0d433dcc577e11358dc6090e81",
+      "address": "0x8d6fa24a282a4c93cc8c9c6db5925e8ea1e2e4af8e865027ea79453ac479b5",
+      "class_hash": "0x4c51ac75c556994391d1f2d7b210f2f25873dce5d941b5392ed81cd368fed2a",
       "abi": [
         {
           "type": "impl",
@@ -1203,6 +1203,13 @@
             },
             {
               "type": "function",
+              "name": "awake",
+              "inputs": [],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
               "name": "play",
               "inputs": [],
               "outputs": [],
@@ -1211,6 +1218,13 @@
             {
               "type": "function",
               "name": "clean",
+              "inputs": [],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "revive",
               "inputs": [],
               "outputs": [],
               "state_mutability": "external"
@@ -1340,7 +1354,7 @@
   "models": [
     {
       "members": [],
-      "class_hash": "0x348e3f8b8d734c2aeed24b5469b1257a04865ab17d75106b2adc936cd602074",
+      "class_hash": "0x61a6b617483bc9b13b2ff5ce898f18c9ec9abc6d1df755dd1c01c9a8edbb50",
       "tag": "Beast"
     }
   ],
