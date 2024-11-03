@@ -7,7 +7,7 @@ import {
 import { Account } from "starknet";
 import { dojoConfig } from "../dojoConfig";
 import { DojoProvider } from "@dojoengine/core";
-import { client } from "./contracts.gen";
+import { client } from "./bindings/contracts.gen";
 
 interface DojoContextType {
     masterAccount: Account;
