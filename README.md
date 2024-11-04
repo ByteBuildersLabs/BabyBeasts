@@ -1,3 +1,4 @@
+
 # BabyBeast Tamagotchi Game
 ![babybeastlogo](https://github.com/user-attachments/assets/42d05877-1650-4e14-a6c7-c36a35219d82)
 
@@ -16,7 +17,6 @@ Welcome to the ByteBeast Tamagotchi Game! This interactive web-based game brings
 To get started, clone this repository:
 ```bash
 $ git clone https://github.com/ByteBuildersLabs/BabyBeasts.git
-$ cd bytebeast-tamagotchi
 $ npm install
 ```
 
@@ -61,14 +61,16 @@ Ensure that hunger and energy do not drop to 0, as this will cause your beast to
 
 Remember to regularly check and manage your beast's stats to keep it happy and healthy. Enjoy playing the Tamagotchi game!
 
-## Contributions
-We welcome contributions! Please feel free to submit a pull request or open an issue if you have any suggestions or improvements.
+## Proof of example: 
+
+https://github.com/user-attachments/assets/d6da9276-fb22-4b96-a367-f6299f9a28e2
+
+https://github.com/user-attachments/assets/6181d159-76c5-4e5a-9f5d-82f03417d47b
+
 
 ## License
 This project is licensed under the MIT License. For more information, please see the LICENSE file.
 
-## Contact
 
----
 Raise your BabyBeast, unlock its potential, and dive into the magical world of Etheria!
 
