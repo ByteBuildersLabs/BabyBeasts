@@ -1,9 +1,6 @@
 import { DojoProvider } from "@dojoengine/core";
 import { Account } from "starknet";
 
-
-export type IClient = Awaited<ReturnType<typeof client>>;
-
 export function client(provider: DojoProvider) {
     // System definitions for `dojo_starter-actions` contract
     function actions() {
